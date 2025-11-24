@@ -48,26 +48,31 @@ def img_processing():
     plt.title('Распределение красного канала до обработки')
     plt.savefig('static/red_histogram.png')
     plt.clf()
+    plt.figure(figsize=(8, 6))
 
     plt.hist(ProcRed.flatten(), bins=50, color='red', alpha=0.7)
     plt.title('Распределение красного канала после обработки')
     plt.savefig('static/red_processed.png')
     plt.clf()
+    plt.figure(figsize=(8, 6))
 
     plt.hist(green.flatten(), bins=50, color='green', alpha=0.7)
     plt.title('Распределение зеленого канала до обработки')
     plt.savefig('static/green_histogram.png')
     plt.clf()
+    plt.figure(figsize=(8, 6))
 
     plt.hist(ProcGreen.flatten(), bins=50, color='green', alpha=0.7)
     plt.title('Распределение зеленого канала после обработки')
     plt.savefig('static/green_processed.png')
     plt.clf()
+    plt.figure(figsize=(8, 6))
 
     plt.hist(blue.flatten(), bins=50, color='blue', alpha=0.7)
     plt.title('Распределение синего канала до обработки')
     plt.savefig('static/blue_histogram.png')
     plt.clf()
+    plt.figure(figsize=(8, 6))
 
     plt.hist(ProcBlue.flatten(), bins=50, color='blue', alpha=0.7)
     plt.title('Распределение синего канала после обработки')
