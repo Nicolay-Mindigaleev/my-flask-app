@@ -34,7 +34,7 @@ def img_processing():
     image.save("static/image.jpg")
     img_array = np.array(image)
     red = img_array[:, :, 0]
-    green = img_array[:, :, 1]
+    green = img_array[:, :, 1]  
     blue = img_array[:, :, 2]
     coef = 1 + intensity/100
     result_array = img_array * coef
