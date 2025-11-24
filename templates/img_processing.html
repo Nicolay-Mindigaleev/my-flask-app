@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результат</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <fieldset>
+        <legend><h3>Результат обработки</h3></legend>
+        <p>Интенсивность: {{ intensity }}%</p>
+
+        <div class="images-container">
+            <div class="image-box">
+                <h4>Исходное изображение</h4>
+                <img src="{{ url_for('static', filename=original_image) }}">
+            </div>
+            <div class="image-box">
+                <h4>Обработанное изображение</h4>
+                <img src="{{ url_for('static', filename=processed_image) }}">
+            </div>
+        </div>
+
+        <div class="histograms-container">
+            <div class="histogram-box">
+                <h4>Красный канал (до)</h4>
+                <img src="{{ url_for('static', filename=red_histogram) }}">
+            </div>
+            <div class="histogram-box">
+                <h4>Красный канал (после)</h4>
+                <img src="{{ url_for('static', filename=red_processed) }}">
+            </div>
+            <div class="histogram-box">
+                <h4>Зелёный канал (до)</h4>
+                <img src="{{ url_for('static', filename=green_histogram) }}">
+            </div>
+            <div class="histogram-box">
+                <h4>Зелёный канал (после)</h4>
+                <img src="{{ url_for('static', filename=green_processed) }}">
+            </div>
+            <div class="histogram-box">
+                <h4>Синий канал (до)</h4>
+                <img src="{{ url_for('static', filename=blue_histogram) }}">
+            </div>
+            <div class="histogram-box">
+                <h4>Синий канал (после)</h4>
+                <img src="{{ url_for('static', filename=blue_processed) }}">
+            </div>
+        </div>
+
+        <a href="/">Обработать другое изображение</a>
+    </fieldset>
+</body>
+</html>
