@@ -8,6 +8,7 @@ from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import FloatField, SubmitField
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 import  requests
+import os
 app = Flask(__name__)
 app.config['RECAPTCHA_PUBLIC_KEY'] = '6LcWHxYsAAAAAM8cl61hpDkESyDO8dgA5KtimCYX'
 app.config['RECAPTCHA_PRIVATE_KEY'] = '6LcWHxYsAAAAAHgESlh11PCPisaNkbZeS53aQ-Fj'
@@ -34,7 +35,7 @@ def img_processing():
     image.save("static/image.jpg")
     img_array = np.array(image)
     red = img_array[:, :, 0]
-    green = img_array[:, :, 1]  
+    green = img_array[:, :, 1]
     blue = img_array[:, :, 2]
     coef = 1 + intensity/100
     result_array = img_array * coef
@@ -84,4 +85,5 @@ def img_processing():
                            blue_histogram="blue_histogram.png",
                            blue_processed="blue_processed.png")
 if __name__ == "__main__":
-    app.run(host='127.0.0.1',port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0',port=port)
