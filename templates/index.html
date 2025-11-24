@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Обработка изображений</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<fieldset>
-    <legend><h3>Поле ввода</h3></legend>
-    <form action="/img_processing" method="POST" id="inputf" enctype="multipart/form-data">
-        <input type="file" name="image" accept="image/*" required>
-        <label for="Intensity">Введите насколько хотите поменять интенсивность изображения:</label>
-        <input type = number id="Intensity" min="-100" max="100" name="intensity">
-        <button type="submit">Обработать изображение</button>
-        <br><br>
-        <div class="g-recaptcha" data-sitekey="6LcWHxYsAAAAAM8cl61hpDkESyDO8dgA5KtimCYX"></div>
-        <script src="https://www.google.com/recaptcha/api.js"></script>
+    <fieldset>
+        <legend><h3>Обработка изображений</h3></legend>
 
-    <br>
-    </form>
-</fieldset>
+        <form action="/img_processing" method="POST" id="inputf" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="form-label" for="image">Выберите изображение:</label>
+                <input class="form-input file-input" type="file" id="image" name="image" accept=".jpg,.jpeg,.png" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="Intensity">Интенсивность изменения (%):</label>
+                <input class="form-input" type="number" id="Intensity" name="intensity"
+                       min="-100" max="100" value="0" required>
+            </div>
+
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LcWHxYsAAAAAM8cl61hpDkESyDO8dgA5KtimCYX"></div>
+                <script src="https://www.google.com/recaptcha/api.js"></script>
+            </div>
+
+            <div class="form-group">
+                <button class="submit-btn" type="submit">Обработать изображение</button>
+            </div>
+        </form>
+    </fieldset>
 </body>
 </html>

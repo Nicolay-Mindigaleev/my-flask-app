@@ -3,53 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Результат</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Результат обработки</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <fieldset>
         <legend><h3>Результат обработки</h3></legend>
-        <p>Интенсивность: {{ intensity }}%</p>
 
-        <div class="images-container">
-            <div class="image-box">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h3 style="color: #333; margin: 0;">Интенсивность: {{ intensity }}%</h3>
+        </div>
+
+        <!-- Основные изображения -->
+        <div class="main-images">
+            <div class="main-box">
                 <h4>Исходное изображение</h4>
-                <img src="{{ url_for('static', filename=original_image) }}">
+                <img src="{{ url_for('static', filename=original_image) }}" alt="Исходное">
             </div>
-            <div class="image-box">
+            <div class="main-box">
                 <h4>Обработанное изображение</h4>
-                <img src="{{ url_for('static', filename=processed_image) }}">
+                <img src="{{ url_for('static', filename=processed_image) }}" alt="Обработанное">
             </div>
         </div>
 
-        <div class="histograms-container">
-            <div class="histogram-box">
+        <!-- Графики по цветам -->
+        <div class="color-row">
+            <div class="color-box">
                 <h4>Красный канал (до)</h4>
-                <img src="{{ url_for('static', filename=red_histogram) }}">
+                <img src="{{ url_for('static', filename=red_histogram) }}" alt="Красный до">
             </div>
-            <div class="histogram-box">
+            <div class="color-box">
                 <h4>Красный канал (после)</h4>
-                <img src="{{ url_for('static', filename=red_processed) }}">
-            </div>
-            <div class="histogram-box">
-                <h4>Зелёный канал (до)</h4>
-                <img src="{{ url_for('static', filename=green_histogram) }}">
-            </div>
-            <div class="histogram-box">
-                <h4>Зелёный канал (после)</h4>
-                <img src="{{ url_for('static', filename=green_processed) }}">
-            </div>
-            <div class="histogram-box">
-                <h4>Синий канал (до)</h4>
-                <img src="{{ url_for('static', filename=blue_histogram) }}">
-            </div>
-            <div class="histogram-box">
-                <h4>Синий канал (после)</h4>
-                <img src="{{ url_for('static', filename=blue_processed) }}">
+                <img src="{{ url_for('static', filename=red_processed) }}" alt="Красный после">
             </div>
         </div>
 
-        <a href="/">Обработать другое изображение</a>
+        <div class="color-row">
+            <div class="color-box">
+                <h4>Зелёный канал (до)</h4>
+                <img src="{{ url_for('static', filename=green_histogram) }}" alt="Зелёный до">
+            </div>
+            <div class="color-box">
+                <h4>Зелёный канал (после)</h4>
+                <img src="{{ url_for('static', filename=green_processed) }}" alt="Зелёный после">
+            </div>
+        </div>
+
+        <div class="color-row">
+            <div class="color-box">
+                <h4>Синий канал (до)</h4>
+                <img src="{{ url_for('static', filename=blue_histogram) }}" alt="Синий до">
+            </div>
+            <div class="color-box">
+                <h4>Синий канал (после)</h4>
+                <img src="{{ url_for('static', filename=blue_processed) }}" alt="Синий после">
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/" class="back-link">Обработать другое изображение</a>
+        </div>
     </fieldset>
 </body>
 </html>

@@ -29,7 +29,7 @@ def img_processing():
     uploaded_file = request.files['image']
     image = Image.open(uploaded_file)
     image = image.convert("RGB")
-    max_size = 800
+    max_size = 500
     if max(image.size) > max_size:
         image.thumbnail((max_size, max_size))
     image.save("static/image.jpg")
